@@ -23,8 +23,8 @@ class Reserves(models.Model):
 
 
 class Routes(models.Model):
-    name = models.CharField(max_length=256, blank=True, null=True)
-    length = models.FloatField(blank=True, null=True)
+    name = models.CharField(max_length=256, blank=True, null=True,verbose_name='Название')
+    length = models.FloatField(blank=True, null=True,verbose_name='Длина')
     COMPLEXITY_CHOICES = (
 
         (1, '1'),
@@ -38,8 +38,8 @@ class Routes(models.Model):
         (5, '5'),
 
     )
-    сomplexity = models.IntegerField(choices=COMPLEXITY_CHOICES, default='1', verbose_name='Сложность')
-    geom = geomodels.MultiLineStringField()
+    сomplexity = models.IntegerField(choices=COMPLEXITY_CHOICES, default='1', verbose_name='Сложность',)
+    geom = geomodels.MultiLineStringField(verbose_name='Маршрут')
     reserve = models.ForeignKey(Reserves, blank=True, null=True, on_delete=models.CASCADE,
                              verbose_name='Заповедник',
                              related_name='Route')
