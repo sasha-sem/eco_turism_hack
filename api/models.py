@@ -60,8 +60,8 @@ class Sights(models.Model):
                                  related_name='SightReserve')
     geom = geomodels.PointField()
     class Meta:
-        verbose_name_plural = 'Достопримечательности'
-        verbose_name = 'Достопримечательность'
+        verbose_name_plural = 'Геокэшинг'
+        verbose_name = 'Геокэшинг'
 
     def __str__(self):
         return self.name
@@ -185,19 +185,3 @@ class Trips(models.Model):
         def __str__(self):
             return self.name
 
-
-class GeoCash(models.Model):
-    name = models.CharField(max_length=256, blank=True, null=True)
-    descr = models.TextField(blank=True, null=True)
-    img = models.ImageField(upload_to='picture', blank=True)
-    is_active = models.BooleanField(default=False)
-    reserve = models.ForeignKey(Reserves, blank=True, null=True, on_delete=models.CASCADE,
-                                 verbose_name='Заповедник',
-                                 related_name='GeoCashReserve')
-    geom = geomodels.PointField()
-    class Meta:
-        verbose_name_plural = 'Геокэшинг'
-        verbose_name = 'Геокэшинг'
-
-    def __str__(self):
-        return self.name
