@@ -13,3 +13,8 @@ class TripView(generics.ListCreateAPIView):
     serializer_class = TripsSerializer       
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['route','reserve','id']
+
+class TripDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Trips.objects.all()
+    serializer_class = TripsSerializer       
+    filter_backends = [DjangoFilterBackend]
