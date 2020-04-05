@@ -52,9 +52,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'corsheaders.middleware.CorsPostCsrfMiddleware',
@@ -153,4 +154,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = ['http://167.172.170.134']
 CSRF_TRUSTED_ORIGINS = [
     '167.172.170.134',
+]
+CORS_REPLACE_HTTPS_REFERER=True
+CORS_ORIGIN_REGEX_WHITELIST = [
+    r"^https://\167.172.170.134$",
 ]
