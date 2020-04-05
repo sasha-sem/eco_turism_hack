@@ -4,6 +4,7 @@ from .views import SightsDetail, SightsList
 
 urlpatterns = [
     path('sights/', SightsList.as_view()),
+    path('sights-detailed/', SightsList.as_view()),
     path('sights/id/<int:pk>/', SightsDetail.as_view()),
 ]
 

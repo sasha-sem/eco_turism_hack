@@ -14,6 +14,12 @@ class SightsList(generics.ListCreateAPIView):
     #filter_backends = [DjangoFilterBackend]
     #filterset_fields = ['category_id', 'persons','country_id']
 
+class SightsDetailList(generics.ListCreateAPIView):
+    queryset = Sights.objects.all()
+    serializer_class = SightsDetailSerializer       
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['reserve']
+
 class SightsDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Sights.objects.all()
     serializer_class = SightsDetailSerializer
